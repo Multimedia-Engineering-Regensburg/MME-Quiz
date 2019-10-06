@@ -1,5 +1,5 @@
 # MME-QUIZ-Bibliothek
-Dies ist ein Demoquiz zum Testen der MME-Quiz-Bibliothek für den MME-Onlinekurs.
+| Dies ist ein Demoquiz zum Testen der MME-Quiz-Bibliothek für den MME-Onlinekurs.
 
 ## Wie lautet der korrekte Name des MME-Kurses?
 ? MME ist nur eine Abkürzung für den eigentlichen Kurstitel

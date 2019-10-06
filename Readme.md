@@ -13,7 +13,7 @@ Quizfragen werden in einer einfachen, an das *Markdown*-Format angelehnten Synta
 
 ``` 
 # Title
-Quiz Description
+| Quiz Description
 
 ## Question
 ? Description or details on question

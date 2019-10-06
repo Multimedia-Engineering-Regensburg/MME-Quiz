@@ -5,17 +5,24 @@
   "main": "index.js",
   "watch": {
     "dev-watch": {
-        "patterns": ["index.html", "lib/*"],
-         "extensions": "js,html,css",
-         "ignore": "lib/mme-quiz.min.js"
+      "patterns": [
+        "index.html",
+        "lib/*"
+      ],
+      "extensions": "js,html,css",
+      "ignore": "lib/mme-quiz.min.js"
     }
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-watch": "npm run build",
-    "build": "node build.js",
-    "postbuild": "uglifyjs lib/index.js --compress --mangle --output dist/mme-quiz.min.js",
+    "build": "npm run rollup && npm run css && npm run uglify && npm run uglifycss",
+    "rollup": "rollup lib/index.js --sourcemap --format iife --name \"MMEQuiz\" --file dist/mme-quiz.js",
+    "css": "cp lib/css/mme-quiz.css dist/mme-quiz.css",
+    "uglify": "uglifyjs dist/mme-quiz.js -o dist/mme-quiz.min.js",
+    "postuglify": "node build-demo.js",
+    "uglifycss": "uglifycss dist/mme-quiz.css --output dist/mme-quiz.min.css",
     "dev-serve": "python3 -m http.server --directory demo",
+    "dev-watch": "npm run build",
     "dev-watcher": "npm-watch dev-watch",
     "start": "npm run dev-serve"
   },
@@ -23,6 +30,7 @@
   "license": "MIT",
   "devDependencies": {
     "fs-extra": "^8.1.0",
-    "npm-watch": "^0.6.0"
+    "npm-watch": "^0.6.0",
+    "rollup": "^1.23.1"
   }
 }
