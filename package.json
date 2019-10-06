@@ -1,0 +1,28 @@
+{
+  "name": "mme-quiz",
+  "version": "0.0.1",
+  "description": "A quiz extension for MME-Online",
+  "main": "index.js",
+  "watch": {
+    "dev-watch": {
+        "patterns": ["index.html", "lib/*"],
+         "extensions": "js,html,css",
+         "ignore": "lib/mme-quiz.min.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-watch": "npm run build",
+    "build": "node build.js",
+    "postbuild": "uglifyjs lib/index.js --compress --mangle --output dist/mme-quiz.min.js",
+    "dev-serve": "python3 -m http.server --directory demo",
+    "dev-watcher": "npm-watch dev-watch",
+    "start": "npm run dev-serve"
+  },
+  "author": "Alexander Bazo <alexanderbazo@googlemail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "fs-extra": "^8.1.0",
+    "npm-watch": "^0.6.0"
+  }
+}
